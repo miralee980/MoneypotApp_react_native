@@ -1,18 +1,10 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  StatusBar,
-  Text,
-  Image,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
+import {StyleSheet, ScrollView, SafeAreaView} from 'react-native';
 import Welcome from './Welcome';
 import Recommand from './Recommand';
 import InterestPotList from './InterestPotList';
 import ProductList from './ProductList';
-import BottomMenu from './BottomMenu';
+import Header from '../../components/Header/SearchUserHeader';
 
 const DATA1 = [
   [
@@ -92,6 +84,7 @@ const Home = ({navigation}) => {
   const onPress = () => navigation.navigate('PotList');
   return (
     <SafeAreaView>
+      <Header backgroundColor={'#6359fa'} />
       <ScrollView contentContainerStyle={{...styles.container}}>
         <Welcome />
         <Recommand />
@@ -101,7 +94,6 @@ const Home = ({navigation}) => {
           data={DATA2}
           onPress={onPress}
         />
-        <BottomMenu />
       </ScrollView>
     </SafeAreaView>
   );
@@ -112,6 +104,7 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: 'column',
     backgroundColor: '#fff',
+    paddingBottom: 48 + 56,
     // marginTop: StatusBar.currentHeight || 0,
   },
 });

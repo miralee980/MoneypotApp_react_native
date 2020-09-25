@@ -74,7 +74,7 @@ export default function Intro({navigation}) {
           />
         </ScrollView>
       </View>
-      <Text style={styles.button} onPress={() => navigation.navigate('Home')}>
+      <Text style={styles.button} onPress={() => navigation.navigate('Main')}>
         시작하기
       </Text>
     </View>

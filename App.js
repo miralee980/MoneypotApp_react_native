@@ -12,19 +12,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import LogoScreen from './screens/Logo/index.android';
 import IntroScreen from './screens/Intro/index.android';
-import HomeScreen from './screens/Home/index.android';
 import PotListScreen from './screens/PotList/index.android';
+import MainScreen from './screens/Main';
 
 const Stack = createStackNavigator();
-
-const Main = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Feed" component={Feed} />
-      <Tab.Screen name="Messages" component={Messages} />
-    </Tab.Navigator>
-  );
-};
 
 const App: () => React$Node = () => {
   return (
@@ -41,13 +32,13 @@ const App: () => React$Node = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="PotList"
+          component={PotListScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="PotList"
-          component={PotListScreen}
+          name="Main"
+          component={MainScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

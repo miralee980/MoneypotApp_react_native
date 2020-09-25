@@ -9,9 +9,13 @@
 import React from 'react';
 import {StyleSheet, View, Image, TouchableWithoutFeedback} from 'react-native';
 
-const SearchUserHeader = () => {
+const SearchUserHeader = ({backgroundColor}) => {
   return (
-    <View style={styles.iconSearchUserContainer}>
+    <View
+      style={{
+        ...styles.iconSearchUserContainer,
+        backgroundColor: `${backgroundColor}`,
+      }}>
       <View style={styles.icon}>
         <Image source={require('../../assets/main/icn_search_wh.png')} />
       </View>

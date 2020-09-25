@@ -13,15 +13,6 @@ const Separator = () => <View style={styles.separator} />;
 const Welcome = () => {
   return (
     <View style={styles.welcomeContainer}>
-      {/* <View style={styles.iconSearchUserContainer}>
-        <View style={styles.icon}>
-          <Image source={require('../../assets/main/icn_search_wh.png')} />
-        </View>
-        <View style={styles.icon}>
-          <Image source={require('../../assets/main/icn_user_wh.png')} />
-        </View>
-      </View> */}
-      <SearchUserHeader />
       <View style={styles.welcomeTextContainer}>
         <Text style={styles.welcomeText}>
           회원님 반갑습니다.
@@ -60,21 +51,10 @@ const Welcome = () => {
 const styles = StyleSheet.create({
   welcomeContainer: {
     width: width,
-    height: 179,
+    height: 123,
     backgroundColor: '#6359fa', // 그라데이션 기능 추가
     zIndex: 2,
   },
-  // iconSearchUserContainer: {
-  //   display: 'flex',
-  //   flexDirection: 'row',
-  //   justifyContent: 'space-between',
-  // },
-  // icon: {
-  //   width: 56,
-  //   height: 56,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // },
   welcomeTextContainer: {
     height: 60,
     alignItems: 'center',
