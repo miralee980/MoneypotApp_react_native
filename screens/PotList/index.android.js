@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import EmptyList from '../../components/EmptyList/EmptyList';
-const Separator = () => <View style={styles.separator} />;
+import Separator from '../../components/Separator/Separator';
+import RateOfReturnTextColor from '../../utils/RateOfReturnTextColor';
 
 const Tab = createMaterialTopTabNavigator();
 const ThemePot = () => {
@@ -117,12 +118,7 @@ const ThemePot = () => {
               style={{
                 fontSize: 14,
                 marginRight: 16,
-                color:
-                  item.return.indexOf('+') >= 0
-                    ? '#f02654'
-                    : item.return.indexOf('-') >= 0
-                    ? '#262ff0'
-                    : '#b5b5b5',
+                color: RateOfReturnTextColor(item.return),
               }}>
               {item.return}
             </Text>
@@ -228,12 +224,7 @@ const AdvicePot = () => {
               style={{
                 fontSize: 14,
                 marginRight: 16,
-                color:
-                  item.return.indexOf('+') >= 0
-                    ? '#f02654'
-                    : item.return.indexOf('-') >= 0
-                    ? '#262ff0'
-                    : '#b5b5b5',
+                color: RateOfReturnTextColor(item.return),
               }}>
               {item.return}
             </Text>
@@ -321,12 +312,7 @@ const MyPot = () => {
               style={{
                 fontSize: 14,
                 marginRight: 16,
-                color:
-                  item.return.indexOf('+') >= 0
-                    ? '#f02654'
-                    : item.return.indexOf('-') >= 0
-                    ? '#262ff0'
-                    : '#b5b5b5',
+                color: RateOfReturnTextColor(item.return),
               }}>
               {item.return}
             </Text>
@@ -345,25 +331,11 @@ const MyPot = () => {
           keyExtractor={(item) => item.id}
         />
       ) : (
-        // <View
-        //   style={{
-        //     display: 'flex',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     marginTop: 124,
-        //   }}>
-        //   <Image source={require('../../assets/common/icn_nocustom.png')} />
-        //   <Text style={{fontSize: 16, color: '#797979', marginTop: 10}}>
-        //     나만의 포트가 없습니다.
-        //   </Text>
-        //   <Text style={{fontSize: 12, color: '#9a9a9a', marginTop: 3}}>
-        //     자산커스텀을 통해 나만의 포트를 만들어보세요.
-        //   </Text>
-        // </View>
         <EmptyList
           image={emptyIcon}
           text1="나만의 포트가 없습니다."
           text2="자산커스텀을 통해 나만의 포트를 만들어보세요."
+          text3={null}
         />
       )}
     </View>
@@ -420,11 +392,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     height: 56,
     fontSize: 16,
-  },
-  separator: {
-    marginHorizontal: 24,
-    borderBottomColor: '#f2f2f2',
-    borderBottomWidth: 1,
   },
 });
 

@@ -7,7 +7,6 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import SearchUserHeader from '../../components/Header/SearchUserHeader';
 const {width} = Dimensions.get('window');
 const Separator = () => <View style={styles.separator} />;
 const Welcome = () => {

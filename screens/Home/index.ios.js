@@ -12,7 +12,6 @@ import Welcome from './Welcome';
 import Recommand from './Recommand';
 import InterestPotList from './InterestPotList';
 import ProductList from './ProductList';
-import BottomMenu from './BottomMenu';
 
 const DATA1 = [
   [
@@ -101,7 +100,6 @@ const Home = ({navigation}) => {
           data={DATA2}
           onPress={onPress}
         />
-        <BottomMenu />
       </ScrollView>
     </SafeAreaView>
   );

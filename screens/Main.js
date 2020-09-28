@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './Home/index.android';
 import FollowScreen from './Follow/index.android';
+import CustomLeagueScreen from './CustomLeague/index.android';
 
 const Tab = createBottomTabNavigator();
 
@@ -61,7 +62,7 @@ const Main = ({navigation}) => {
       }}>
       <Tab.Screen name="홈" component={HomeScreen} />
       <Tab.Screen name="팔로우" component={FollowScreen} />
-      <Tab.Screen name="커스텀리그" component={FollowScreen} />
+      <Tab.Screen name="커스텀리그" component={CustomLeagueScreen} />
       <Tab.Screen name="설정" component={FollowScreen} />
     </Tab.Navigator>
   );

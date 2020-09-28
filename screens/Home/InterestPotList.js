@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
-
-const Separator = () => <View style={styles.separator} />;
+import Separator from '../../components/Separator/Separator';
+import RateOfReturnTextColor from '../../utils/RateOfReturnTextColor';
 
 const EmptyInterestList = () => {
   return (
@@ -57,12 +57,7 @@ const Item = ({item}) => (
       <Text
         style={{
           fontSize: 16,
-          color:
-            item.return.indexOf('+') >= 0
-              ? '#f02654'
-              : item.return.indexOf('-') >= 0
-              ? '#262ff0'
-              : '#b5b5b5',
+          color: RateOfReturnTextColor(item.return),
         }}>
         {item.return}
       </Text>
@@ -244,11 +239,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     fontSize: 13,
     color: '#cccccc',
-  },
-  separator: {
-    marginHorizontal: 16,
-    borderBottomColor: '#f4f4f4',
-    borderBottomWidth: 1,
   },
 });
 

@@ -84,7 +84,7 @@ const Home = ({navigation}) => {
   const onPress = () => navigation.navigate('PotList');
   return (
     <SafeAreaView>
-      <Header backgroundColor={'#6359fa'} />
+      <Header backgroundColor={'#6359fa'} iconColor={'white'} title={null} />
       <ScrollView contentContainerStyle={{...styles.container}}>
         <Welcome />
         <Recommand />

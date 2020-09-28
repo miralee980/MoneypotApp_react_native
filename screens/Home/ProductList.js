@@ -1,9 +1,10 @@
 import React, {useRef} from 'react';
 import {View, StyleSheet, Text, Image, Dimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
+import Separator from '../../components/Separator/Separator';
+import RateOfReturnTextColor from '../../utils/RateOfReturnTextColor';
 
 const {width: screenWidth} = Dimensions.get('window');
-const Separator = () => <View style={styles.separator} />;
 
 const renderItem = ({item, index}) => {
   let bullets = [];
@@ -73,12 +74,7 @@ const Item = ({item}) => (
       <Text
         style={{
           fontSize: 16,
-          color:
-            item.return.indexOf('+') >= 0
-              ? '#f02654'
-              : item.return.indexOf('-') >= 0
-              ? '#262ff0'
-              : '#b5b5b5',
+          color: RateOfReturnTextColor(item.return),
         }}>
         {item.return}
       </Text>
@@ -198,11 +194,6 @@ const styles = StyleSheet.create({
   itemValue: {
     fontSize: 10,
     color: '#9a9a9a',
-  },
-  separator: {
-    marginHorizontal: 16,
-    borderBottomColor: '#f4f4f4',
-    borderBottomWidth: 1,
   },
   bullets: {
     display: 'flex',

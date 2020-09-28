@@ -7,9 +7,18 @@
  */
 
 import React from 'react';
-import {StyleSheet, View, Image, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, View, Image, Text} from 'react-native';
 
-const SearchUserHeader = ({backgroundColor}) => {
+const SearchUserHeader = ({backgroundColor, iconColor, title}) => {
+  var searchIcon =
+    iconColor === 'white'
+      ? require(`../../assets/main/icn_search_wh.png`)
+      : require(`../../assets/main/icn_search_gray.png`);
+  var userIcon =
+    iconColor === 'white'
+      ? require(`../../assets/main/icn_user_wh.png`)
+      : require(`../../assets/main/icn_user_gray.png`);
+  var betaIcon = require(`../../assets/common/img_custom_beta.png`);
   return (
     <View
       style={{
@@ -17,10 +26,20 @@ const SearchUserHeader = ({backgroundColor}) => {
         backgroundColor: `${backgroundColor}`,
       }}>
       <View style={styles.icon}>
-        <Image source={require('../../assets/main/icn_search_wh.png')} />
+        <Image source={searchIcon} />
       </View>
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <Text>{title}</Text>
+        {title === '커스텀리그' ? <Image source={betaIcon} /> : null}
+      </View>
+
       <View style={styles.icon}>
-        <Image source={require('../../assets/main/icn_user_wh.png')} />
+        <Image source={userIcon} />
       </View>
     </View>
   );
@@ -31,12 +50,17 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   icon: {
     width: 56,
     height: 56,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  title: {
+    fontSize: 16,
+    color: '#3d3f42',
   },
 });
 

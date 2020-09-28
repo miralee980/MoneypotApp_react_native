@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {StyleSheet, View, Text, Image, Dimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
+import RateOfReturnTextColor from '../../utils/RateOfReturnTextColor';
 const {width: screenWidth} = Dimensions.get('window');
 
 const ENTRIES1 = [
@@ -60,7 +61,7 @@ const Recommand = () => {
         <Text
           style={{
             ...styles.StockReturnText,
-            color: item.stockReturn.indexOf('+') ? '#f02654' : '#262ff0',
+            color: RateOfReturnTextColor(item.stockReturn),
           }}>
           {item.stockReturn}
         </Text>

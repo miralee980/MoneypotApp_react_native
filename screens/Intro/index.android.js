@@ -27,7 +27,6 @@ export default function Intro({navigation}) {
   }
 
   const onScroll = (data) => {
-    console.log(data.nativeEvent.contentOffset.x);
     if (data.nativeEvent.contentOffset.x === 0) {
       setInterval(1);
     } else if (
