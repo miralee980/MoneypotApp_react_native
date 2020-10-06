@@ -88,7 +88,12 @@ const Home = ({navigation}) => {
       <ScrollView contentContainerStyle={{...styles.container}}>
         <Welcome />
         <Recommand />
-        <ProductList title={'상품 리스트'} data={DATA1} onPress={onPress} />
+        <ProductList
+          title={'상품 리스트'}
+          data={DATA1}
+          onPress={onPress}
+          navigation={navigation}
+        />
         <InterestPotList
           title={'내 관심포트의 오늘 날씨는?'}
           data={DATA2}

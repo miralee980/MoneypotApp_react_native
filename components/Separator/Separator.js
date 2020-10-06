@@ -4,7 +4,7 @@ const Separator = () => <View style={styles.separator} />;
 
 const styles = StyleSheet.create({
   separator: {
-    marginHorizontal: 24,
+    // marginHorizontal: 24,
     borderBottomColor: '#f2f2f2',
     borderBottomWidth: 1,
   },

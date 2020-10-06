@@ -14,7 +14,7 @@ import LogoScreen from './screens/Logo/index.android';
 import IntroScreen from './screens/Intro/index.android';
 import PotListScreen from './screens/PotList/index.android';
 import MainScreen from './screens/Main';
-
+import DetailScreen from './screens/Detail/Detail';
 const Stack = createStackNavigator();
 
 const App: () => React$Node = () => {
@@ -39,6 +39,11 @@ const App: () => React$Node = () => {
         <Stack.Screen
           name="Main"
           component={MainScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Detail"
+          component={DetailScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

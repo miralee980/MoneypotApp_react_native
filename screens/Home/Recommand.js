@@ -6,33 +6,45 @@ const {width: screenWidth} = Dimensions.get('window');
 
 const ENTRIES1 = [
   {
-    title: '나이키',
-    subtitle: `세계적인 운동화 브랜드,${'\n'}JUST DO IT!`,
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
-    stockReturn: '+23.48%',
-  },
-  {
-    title: '나이키',
-    subtitle: `세계적인 운동화 브랜드,${'\n'}JUST DO IT!`,
-    illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
+    title: '미국 배당주 I',
+    subtitle: `점점 진화하는 '건강'에 대한 정의,
+    그 중심에 있는 기업들`,
+    illustration: require('../../assets/potIcon/fp_0001.png'),
     stockReturn: '-23.48%',
   },
   {
-    title: '나이키',
-    subtitle: `세계적인 운동화 브랜드,${'\n'}JUST DO IT!`,
-    illustration: 'https://i.imgur.com/MABUbpDl.jpg',
+    title: '미국 배당주 II',
+    subtitle: `You Only Live Once, 인생에서
+    빼놓을 수 없는 ‘여행’의 필수적인 기업`,
+    illustration: require('../../assets/potIcon/fp_0002.png'),
     stockReturn: '+23.48%',
   },
   {
-    title: '나이키',
-    subtitle: `세계적인 운동화 브랜드,${'\n'}JUST DO IT!`,
-    illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
+    title: '코로나 의료',
+    subtitle: `코로나 19를 이겨낼 
+    의료 시스템 기업들`,
+    illustration: require('../../assets/potIcon/fp_0003.png'),
     stockReturn: '+23.48%',
   },
   {
-    title: '나이키',
-    subtitle: `세계적인 운동화 브랜드,${'\n'}JUST DO IT!`,
-    illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
+    title: '13F 보고서',
+    subtitle: `현금부자 워렌버핏은
+    어떤 기업을 샀을까?`,
+    illustration: require('../../assets/potIcon/fp_0004.png'),
+    stockReturn: '+23.48%',
+  },
+  {
+    title: 'IT 대세기업',
+    subtitle: `세계적인 운동화 브랜드,
+    JUST DO IT !`,
+    illustration: require('../../assets/potIcon/fp_0005.png'),
+    stockReturn: '+23.48%',
+  },
+  {
+    title: '클라우드',
+    subtitle: `세계적인 운동화 브랜드,
+    JUST DO IT !`,
+    illustration: require('../../assets/potIcon/fp_0006.png'),
     stockReturn: '+23.48%',
   },
 ];
@@ -52,10 +64,7 @@ const Recommand = () => {
             <Text style={styles.ProductNameText}>{item.title}</Text>
             <View style={styles.ProductNamePoint} />
           </View>
-          <Image
-            source={require('../../assets/main/img_stock_nke.png')}
-            style={styles.ProductImage}
-          />
+          <Image source={item.illustration} style={styles.ProductImage} />
         </View>
         <Text style={styles.ProductComment}>{item.subtitle}</Text>
         <Text

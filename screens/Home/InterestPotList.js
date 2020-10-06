@@ -82,17 +82,18 @@ const InterestPotList = ({title, data, onPress}) => {
         style={{
           ...styles.productList,
           height: data === null ? 188 : 160,
+          // marginHorizontal : 24
         }}>
         {data === null ? (
           <EmptyInterestList />
         ) : (
-          <>
+          <View style={{paddingHorizontal: 26}}>
             <Item item={data[0]} />
             <Separator />
             <Item item={data[1]} />
             <Separator />
             <Item item={data[2]} />
-          </>
+          </View>
         )}
       </View>
       {data ? (
@@ -157,7 +158,6 @@ const styles = StyleSheet.create({
   itemContainer: {
     display: 'flex',
     flexDirection: 'row',
-    paddingHorizontal: 26,
     paddingVertical: 5,
     justifyContent: 'space-between',
   },

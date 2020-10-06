@@ -77,7 +77,7 @@ const ThemePot = () => {
       ? require('../../assets/common/icn_follow_on.png')
       : require('../../assets/common/icn_follow_off.png');
     return (
-      <>
+      <View style={{paddingHorizontal: 24}}>
         <View
           style={{
             display: 'flex',
@@ -94,7 +94,7 @@ const ThemePot = () => {
             }}>
             <Text
               style={{
-                marginLeft: 24,
+                // marginLeft: 24,
                 fontSize: 14,
                 color: '#b5b5b5',
               }}>
@@ -125,7 +125,7 @@ const ThemePot = () => {
             <Image
               source={icon}
               style={{
-                marginRight: 22,
+                // marginRight: 22,
                 width: 20,
                 height: 20,
               }}
@@ -133,7 +133,7 @@ const ThemePot = () => {
           </View>
         </View>
         <Separator />
-      </>
+      </View>
     );
   };
   return (
@@ -183,7 +183,7 @@ const AdvicePot = () => {
 
   const renderItem = ({item}) => {
     return (
-      <>
+      <View style={{marginHorizontal: 24}}>
         <View
           style={{
             display: 'flex',
@@ -200,7 +200,7 @@ const AdvicePot = () => {
             }}>
             <Text
               style={{
-                marginLeft: 24,
+                // marginLeft: 24,
                 fontSize: 14,
                 color: '#b5b5b5',
               }}>
@@ -223,7 +223,7 @@ const AdvicePot = () => {
             <Text
               style={{
                 fontSize: 14,
-                marginRight: 16,
+                // marginRight: 16,
                 color: RateOfReturnTextColor(item.return),
               }}>
               {item.return}
@@ -231,7 +231,7 @@ const AdvicePot = () => {
           </View>
         </View>
         <Separator />
-      </>
+      </View>
     );
   };
   return (
@@ -271,7 +271,7 @@ const MyPot = () => {
 
   const renderItem = ({item}) => {
     return (
-      <>
+      <View style={{marginHorizontal: 24}}>
         <View
           style={{
             display: 'flex',
@@ -288,7 +288,7 @@ const MyPot = () => {
             }}>
             <Text
               style={{
-                marginLeft: 24,
+                // marginLeft: 24,
                 fontSize: 14,
                 color: '#b5b5b5',
               }}>
@@ -311,7 +311,7 @@ const MyPot = () => {
             <Text
               style={{
                 fontSize: 14,
-                marginRight: 16,
+                // marginRight: 16,
                 color: RateOfReturnTextColor(item.return),
               }}>
               {item.return}
@@ -319,7 +319,7 @@ const MyPot = () => {
           </View>
         </View>
         <Separator />
-      </>
+      </View>
     );
   };
   return (

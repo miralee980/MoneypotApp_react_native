@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  StatusBar,
-  Text,
-  Image,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
+import {StyleSheet, ScrollView, SafeAreaView} from 'react-native';
 import Welcome from './Welcome';
 import Recommand from './Recommand';
 import InterestPotList from './InterestPotList';
 import ProductList from './ProductList';
+import Header from '../../components/Header/SearchUserHeader';
 
 const DATA1 = [
   [
@@ -91,10 +84,16 @@ const Home = ({navigation}) => {
   const onPress = () => navigation.navigate('PotList');
   return (
     <SafeAreaView>
+      <Header backgroundColor={'#6359fa'} iconColor={'white'} title={null} />
       <ScrollView contentContainerStyle={{...styles.container}}>
         <Welcome />
         <Recommand />
-        <ProductList title={'상품 리스트'} data={DATA1} onPress={onPress} />
+        <ProductList
+          title={'상품 리스트'}
+          data={DATA1}
+          onPress={onPress}
+          navigation={navigation}
+        />
         <InterestPotList
           title={'내 관심포트의 오늘 날씨는?'}
           data={DATA2}
@@ -110,6 +109,7 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: 'column',
     backgroundColor: '#fff',
+    paddingBottom: 48 + 56,
     // marginTop: StatusBar.currentHeight || 0,
   },
 });

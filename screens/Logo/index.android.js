@@ -10,8 +10,9 @@ import React, {useEffect} from 'react';
 import {StyleSheet, View, Image, TouchableWithoutFeedback} from 'react-native';
 
 const Logo = ({navigation}) => {
+  var timer = null;
   useEffect(() => {
-    var timer = setTimeout(() => {
+    timer = setTimeout(() => {
       navigation.navigate('Intro');
     }, 2000);
     return () => {

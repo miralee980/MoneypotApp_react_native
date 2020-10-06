@@ -1,53 +1,17 @@
-import React, {useRef} from 'react';
-import {View, StyleSheet, Text, Image, Dimensions} from 'react-native';
+import React, {useRef, Component} from 'react';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  Dimensions,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Separator from '../../components/Separator/Separator';
 import RateOfReturnTextColor from '../../utils/RateOfReturnTextColor';
 
 const {width: screenWidth} = Dimensions.get('window');
-
-const renderItem = ({item, index}) => {
-  let bullets = [];
-  for (let i = 1; i <= 2; i++) {
-    bullets.push(
-      <Text
-        key={i}
-        style={{
-          ...styles.bullet,
-          color: index + 1 === i ? '#4e7dff' : '#eaeaea',
-        }}>
-        &bull;
-      </Text>,
-    );
-  }
-  return (
-    <View
-      style={{
-        ...styles.productList,
-        height: 236,
-      }}>
-      <ProductLlistHeader
-        headerContents={
-          index === 0
-            ? {
-                title: '테마포트 차트',
-                comment: '2년간 누적 수익률',
-              }
-            : {
-                title: '자문포트 차트',
-                comment: '2년간 누적 수익률',
-              }
-        }
-      />
-      <Item item={item[0]} />
-      <Separator />
-      <Item item={item[1]} />
-      <Separator />
-      <Item item={item[2]} />
-      <View style={styles.bullets}>{bullets}</View>
-    </View>
-  );
-};
 
 const ProductLlistHeader = ({headerContents}) => {
   return (
@@ -64,12 +28,14 @@ const ProductLlistHeader = ({headerContents}) => {
   );
 };
 
-const Item = ({item}) => (
+const Item = ({item, navigation}) => (
   <View style={styles.itemContainer}>
-    <View style={styles.itemNameContainer}>
-      <Text style={styles.itemNumber}>{item.num}</Text>
-      <Text style={styles.itemName}>{item.title}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate('Detail')}>
+      <View style={styles.itemNameContainer}>
+        <Text style={styles.itemNumber}>{item.num}</Text>
+        <Text style={styles.itemName}>{item.title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
     <View style={styles.itemReturnValueContainer}>
       <Text
         style={{
@@ -83,31 +49,81 @@ const Item = ({item}) => (
   </View>
 );
 
-const ProductList = ({title, data, onPress}) => {
-  const carouselRef = useRef(null);
-  return (
-    <View style={styles.productListContainer}>
-      <View style={styles.productListTitleContainer}>
-        <Image
-          source={require('../../assets/main/icn_go.png')}
-          style={styles.goIcon}
-        />
-        <Text style={styles.productListTitle} onPress={onPress}>
-          {title}
-        </Text>
-      </View>
+class ProductList extends Component {
+  //const {title, data, onPress, navigation} = this.props;
+  //console.log(this.props.navigation);
+  //const carouselRef = useRef(null);
 
-      <Carousel
-        ref={carouselRef}
-        sliderWidth={screenWidth}
-        sliderHeight={236}
-        itemWidth={312 + 24}
-        data={data}
-        renderItem={renderItem}
-      />
-    </View>
-  );
-};
+  renderItem = ({item, index}) => {
+    let bullets = [];
+    for (let i = 1; i <= 2; i++) {
+      bullets.push(
+        <Text
+          key={i}
+          style={{
+            ...styles.bullet,
+            color: index + 1 === i ? '#4e7dff' : '#eaeaea',
+          }}>
+          &bull;
+        </Text>,
+      );
+    }
+    return (
+      <View
+        style={{
+          ...styles.productList,
+          height: 236,
+        }}>
+        <ProductLlistHeader
+          headerContents={
+            index === 0
+              ? {
+                  title: '테마포트 차트',
+                  comment: '2년간 누적 수익률',
+                }
+              : {
+                  title: '자문포트 차트',
+                  comment: '2년간 누적 수익률',
+                }
+          }
+        />
+        <View style={{paddingHorizontal: 26}}>
+          <Item item={item[0]} navigation={this.props.navigation} />
+          <Separator />
+          <Item item={item[1]} navigation={this.props.navigation} />
+          <Separator />
+          <Item item={item[2]} navigation={this.props.navigation} />
+        </View>
+        <View style={styles.bullets}>{bullets}</View>
+      </View>
+    );
+  };
+
+  render() {
+    return (
+      <View style={styles.productListContainer}>
+        <View style={styles.productListTitleContainer}>
+          <Image
+            source={require('../../assets/main/icn_go.png')}
+            style={styles.goIcon}
+          />
+          <Text style={styles.productListTitle} onPress={this.props.onPress}>
+            {this.props.title}
+          </Text>
+        </View>
+
+        <Carousel
+          /*ref={carouselRef}*/
+          sliderWidth={screenWidth}
+          sliderHeight={236}
+          itemWidth={312 + 24}
+          data={this.props.data}
+          renderItem={this.renderItem.bind(this)}
+        />
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   productListContainer: {
@@ -167,7 +183,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     display: 'flex',
     flexDirection: 'row',
-    paddingHorizontal: 26,
+    // paddingHorizontal: 26,
     paddingVertical: 5,
     justifyContent: 'space-between',
   },
